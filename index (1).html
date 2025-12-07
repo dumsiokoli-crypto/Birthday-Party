@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Roban Stores Grand Christmas Gala 2025 – The most lit Detty December party in Enugu!"/>
+  <meta property="og:title" content="Roban Stores Christmas Gala 2025"/>
+  <meta property="og:image" content="https://robanchristmas.netlify.app/preview.jpg"/>
+  <title>Roban Stores Christmas Gala 2025 | The Litmas Party!</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #0f0019, #001133); 
+      color: #fff; 
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Snow Canvas */
+    #snow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+
+    /* Sparkles */
+    .sparkles {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: sparkle 10s linear infinite;
+    }
+    @keyframes sparkle { 0%,100% { opacity: 0.4; } 50% { opacity: 0.9; } }
+
+    /* Floating Ornaments */
+    .ornament {
+      position: fixed; width: 70px; height: 70px; z-index: 3;
+      background: url('https://i.ibb.co.com/5k5n8YJ/gold-ornament.png') center/contain no-repeat;
+      animation: float 25s infinite linear;
+      pointer-events: none;
+    }
+    .o1 { top: -10%; left: 10%; animation-duration: 28s; }
+    .o2 { top: -15%; right: 15%; animation-duration: 32s; animation-direction: reverse; }
+    .o3 { top: -10%; left: 60%; animation-duration: 24s; }
+    .o4 { top: -20%; left: 30%; animation-duration: 30s; }
+    @keyframes float {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 1000px; }
+    .glow-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      background: linear-gradient(45deg, #ff0000, #00ff00, gold, #ff0066);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 4s infinite alternate;
+      text-shadow: 0 0 40px rgba(255,0,0,0.6);
+    }
+    @keyframes glow { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }
+
+    .tagline { font-size: clamp(1.5rem, 4vw, 2.2rem); color: #00ff00; text-shadow: 0 0 20px #00ff0080; margin: 1rem 0; }
+    .date { font-size: 1.8rem; color: gold; font-weight: 800; }
+    .venue { font-size: 1.4rem; margin: 0.5rem 0 2rem; }
+
+    .countdown {
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 2.5rem 0;
+      font-size: 1.5rem; font-weight: bold;
+    }
+    .countdown > div {
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      min-width: 100px;
+      box-shadow: 0 0 20px rgba(0,255,0,0.4);
+    }
+
+    .cta-pulse {
+      display: inline-block;
+      background: #ff0066;
+      color: #fff;
+      padding: 1.2rem 3rem;
+      font-size: 1.6rem;
+      border-radius: 50px;
+      text-decoration: none;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 40px #ff0066;
+      margin: 1rem;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 40px #ff0066; }
+      50% { transform: scale(1.1); box-shadow: 0 0 80px #ff0066; }
+    }
+    .limited { color: #ff0066; font-weight: bold; font-size: 1.4rem; margin-top: 1rem; }
+
+    /* Features */
+    .features .container {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 4rem 1rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      width: 300px;
+      transition: transform 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-15px); }
+    .feature-card img { width: 100%; border-radius: 15px; margin-bottom: 1rem; }
+
+    /* Reservation Section */
+    .reserve {
+      padding: 5rem 1rem;
+      background: rgba(0,0,0,0.4);
+    }
+    .reserve .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .pricing {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem 0;
+    }
+    .card {
+      background: linear-gradient(135deg, #ff0000, #990000);
+      color: #fff;
+      padding: 2.5rem;
+      border-radius: 25px;
+      width: 320px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(255,0,0,0.6);
+    }
+    .card.vip { background: linear-gradient(135deg, gold, #ffaa00); color: #000; }
+    .card.vvip { background: linear-gradient(135deg, #00ff00, #00aa00); color: #000; }
+    .popular {
+      position: absolute; top: -12px; right: 15px;
+      background: #ff0066; color: #fff; padding: 8px 20px;
+      border-radius: 20px; font-size: 0.9rem; font-weight: bold;
+    }
+    .price { font-size: 2.5rem; font-weight: 800; margin: 1rem 0; }
+    .card ul { text-align: left; margin: 1.5rem 0; }
+    .card li { margin: 0.8rem 0; }
+
+    /* Booking Form */
+    #booking-form {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: rgba(255,255,255,0.1);
+      padding: 2.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1rem;
+    }
+    input::placeholder, textarea::placeholder { color: #ccc; }
+    button[type="submit"] {
+      background: #ff0066;
+      color: white;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+
+    .contact {
+      margin-top: 3rem;
+      font-size: 1.4rem;
+    }
+    .contact strong { color: #00ff00; }
+
+    footer { text-align: center; padding: 3rem; background: rgba(0,0,0,0.5); }
+
+    @media (max-width: 768px) {
+      .countdown { gap: 1rem; font-size: 1.2rem; }
+      .countdown > div { padding: 0.8rem; min-width: 80px; }
+      .pricing { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="snow"></canvas>
+  <div class="sparkles"></div>
+  <div class="ornament o1"></div>
+  <div class="ornament o2"></div>
+  <div class="ornament o3"></div>
+  <div class="ornament o4"></div>
+
+  <header class="hero">
+    <video autoplay muted loop playsinline class="hero-video" poster="https://files.catbox.moe/ij58gk.jpeg">
+      <source src="https://files.catbox.moe/8j44s4.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1 class="glow-title">ROBAN STORES<br><span>CHRISTMAS GALA 2025</span></h1>
+      <p class="tagline">The Biggest & Most Lit Detty December Party in the East!</p>
+      <p class="date">24th December 2025 • 7PM Till Mama Calls</p>
+      <p class="venue">Roban Experience Center, Enugu</p>
+      
+      <div class="countdown" id="countdown">
+        <div><span id="days">00</span><br>Days</div>
+        <div><span id="hours">00</span><br>Hours</div>
+        <div><span id="minutes">00</span><br>Minutes</div>
+        <div><span id="seconds">00</span><br>Seconds</div>
+      </div>
+
+      <a href="#reserve" class="cta-pulse">SECURE YOUR TABLE NOW</a>
+      <p class="limited">Only 8 VIP Tables Left!</p>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <div class="feature-card">
+        <img src="https://files.catbox.moe/ij58gk.jpeg" alt="Premium Food">
+        <h3>Unlimited Premium Food & Drinks</h3>
+      </div>
+      <div class="feature-card">
+        <img src="https://files.catbox.moe/azwfyg.jpeg" alt="A-List Artists">
+        <h3>A-List Artists & Hype DJs</h3>
+      </div>
+      <div class="feature-card">
+        <img src="https://files.catbox.moe/p81u7n.jpeg" alt="Giveaways">
+        <h3>Santa + ₦5M+ Giveaways</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="reserve" id="reserve">
+    <div class="container">
+      <h2 class="glow-title">Reserve Your Table Now!</h2>
+
+      <div class="pricing">
+        <div class="card regular">
+          <h3>REGULAR</h3>
+          <div class="price">₦50,000</div>
+          <ul>
+            <li>Entry + Food</li>
+            <li>Soft Drinks</li>
+          </ul>
+        </div>
+        <div class="card vip">
+          <div class="popular">MOST POPULAR</div>
+          <h3>VIP TABLE</h3>
+          <div class="price">₦500,000</div>
+          <ul>
+            <li>6 Seats</li>
+            <li>2 Bottles Moët</li>
+            <li>Prime VIP Section</li>
+          </ul>
+        </div>
+        <div class="card vvip">
+          <h3>VVIP TABLE</h3>
+          <div class="price">₦1,000,000</div>
+          <ul>
+            <li>10 Seats</li>
+            <li>Ace of Spades</li>
+            <li>Stage Front</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <form id="booking-form" action="https://formspree.io/f/your-email-here" method="POST">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label>Phone Number (WhatsApp)</label>
+          <input type="tel" name="phone" required placeholder="e.g. 09012345678">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="Optional">
+        </div>
+        <div class="form-group">
+          <label>Table Type</label>
+          <select name="table" required>
+            <option value="">Select Table</option>
+            <option value="Regular - ₦50,000">Regular - ₦50,000</option>
+            <option value="VIP Table - ₦500,000">VIP Table - ₦500,000</option>
+            <option value="VVIP Table - ₦1,000,000">VVIP Table - ₦1,000,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Any Special Request?</label>
+          <textarea name="message" rows="4" placeholder="e.g. Birthday celebration, etc."></textarea>
+        </div>
+        <button type="submit">BOOK MY TABLE NOW</button>
+      </form>
+
+      <p class="contact">
+        Or Call/WhatsApp: 
+        <strong>0906 000 1234</strong> • 
+        <strong>0818 888 9999</strong>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Roban Stores • The Litmas Party of the Year</p>
+  </footer>
+
+  <script>
+    // Countdown to Dec 24, 2025 7:00 PM
+    const countdown = () => {
+      const eventDate = new Date("Dec 24, 2025 19:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    };
+    setInterval(countdown, 1000);
+    countdown();
+
+    // Simple Snow Effect
+    const snowCanvas = document.getElementById("snow");
+    const ctx = snowCanvas.getContext("2d");
+    snowCanvas.width = window.innerWidth;
+    snowCanvas.height = window.innerHeight;
+
+    const snowflakes = [];
+    for(let i = 0; i < 150; i++) {
+      snowflakes.push({
+        x: Math.random() * snowCanvas.width,
+        y: Math.random() * snowCanvas.height,
+        r: Math.random() * 4 + 1,
+        d: Math.random() + 1
+      });
+    }
+
+    function drawSnow() {
+      ctx.clearRect(0, 0, snowCanvas.width, snowCanvas.height);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+      ctx.beginPath();
+      for(let i = 0; i < snowflakes.length; i++) {
+        const f = snowflakes[i];
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+      }
+      ctx.fill();
+      snowflakes.forEach(f => {
+        f.y += f.r * 0.5;
+        if (f.y > snowCanvas.height) f.y = 0;
+      });
+      requestAnimationFrame(drawSnow);
+    }
+    drawSnow();
+
+    window.addEventListener("resize", () => {
+      snowCanvas.width = window.innerWidth;
+      snowCanvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
